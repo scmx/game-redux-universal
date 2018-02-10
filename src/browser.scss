@@ -1,0 +1,66 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+html, body {
+  background: #399;
+  font-size: 1.3em;
+}
+
+fieldset {
+  display: inline-block;
+  border: 0;
+}
+
+.label {
+  color: #155;
+  text-shadow: 0.1rem 0.1rem 0.1rem rgba(200, 255, 255, 0.3);
+  // padding: 0.2rem 0.4rem;
+  margin: 0.3rem;
+}
+
+.input {
+  width: 100%;
+  font-size: 1rem;
+  border-style: solid;
+  border-color: #177;
+  border-width: 1px;
+  border-radius: 0.1rem;
+  margin: 0.3rem;
+  background: #4bb;
+
+  &[type=text] {
+    padding: 0.2rem 0.4rem;
+  }
+  &[type=range] {
+    padding: 0.2rem 0;
+  }
+}
+
+.button {
+  border-style: solid;
+  border-color: #888;
+  border-width: 1px 1px 3px;
+  border-radius: 0.3rem;
+  line-height: 1;
+  font-size: 1rem;
+  margin: 0.5rem;
+  padding: 0.4rem 1.6rem;
+  background: #bff;
+
+  &--primary {
+    background: #059;
+    color: #bff;
+    border-color: #059 + 20;
+  }
+}
+
+.designer {
+  &__form {
+    display: grid;
+  }
+}

@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import App from './app/App'
 import configureStore from './configureStore'
 import { getInitialState } from './storage'
+import './browser.scss'
 
 const socket = window.io()
 
