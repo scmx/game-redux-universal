@@ -5,7 +5,7 @@ import { characterCreators } from '../characters'
 
 class HallOfFame extends React.Component {
   componentDidMount () {
-    const noCharacters = Object.keys(this.props.characters).length === 0
+    // const noCharacters = Object.keys(this.props.characters).length === 0
 
     // if (noCharacters) {
     //   this.props.designCharacter()
