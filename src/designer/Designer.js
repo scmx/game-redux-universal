@@ -108,13 +108,10 @@ class Designer extends React.Component {
 
   handleSubmit (event) {
     event.preventDefault()
-    this.props.play()
+    this.props.play(this.state)
   }
 }
 
-export default connect(
-  null,
-  {
-    play: gameCreators.play
-  }
-)(Designer)
+export default connect(null, {
+  play: gameCreators.play
+})(Designer)

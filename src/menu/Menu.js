@@ -4,7 +4,7 @@ import { uiCreators } from '../ui'
 
 class Menu extends React.Component {
   componentDidMount () {
-    this.props.playOffline() // TODO: Support both
+    // this.props.playOffline() // TODO: Support both
   }
 
   render () {

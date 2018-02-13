@@ -7,9 +7,9 @@ class HallOfFame extends React.Component {
   componentDidMount () {
     const noCharacters = Object.keys(this.props.characters).length === 0
 
-    if (noCharacters) {
-      this.props.designCharacter()
-    }
+    // if (noCharacters) {
+    //   this.props.designCharacter()
+    // }
   }
 
   render () {
