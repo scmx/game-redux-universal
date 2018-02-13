@@ -1,5 +1,4 @@
 import { uiActions, uiStates } from './'
-import { characterActions } from '../characters'
 
 export default function uiReducer (state = uiStates.NICKNAME, action) {
   switch (action.type) {
@@ -21,12 +20,6 @@ export default function uiReducer (state = uiStates.NICKNAME, action) {
     case uiActions.HALL_OF_FAME: {
       return uiActions.HALL_OF_FAME
     }
-    case characterActions.DESIGN_CHARACTER: {
-      return uiStates.DESIGNER
-    }
-    // case characterActions.VIEW_CHARACTER: {
-    //   return uiStates.
-    // }
     default: {
       return state
     }
