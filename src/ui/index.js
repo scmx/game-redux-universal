@@ -12,7 +12,7 @@ export const uiStates = buildConstant(
 )
 
 export const uiActions = buildConstant(
-  stringArrayToStringObject('SET_NICKNAME', 'PLAY_ONLINE', 'PLAY_OFFLINE')
+  stringArrayToStringObject('SET_NICKNAME', 'PLAY_ONLINE', 'PLAY_OFFLINE', 'NEW_GAME', 'LOAD_GAME', 'HALL_OF_FAME')
 )
 
 export const uiCreators = buildConstant({
