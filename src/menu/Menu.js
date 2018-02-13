@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { uiCreators } from '../ui'
+import MenuOnlineOffline from './MenuOnlineOffline'
 
 class Menu extends React.Component {
   componentDidMount () {
@@ -8,17 +9,13 @@ class Menu extends React.Component {
   }
 
   render () {
+    const menuItems = (
+      <MenuOnlineOffline />
+    )
     return (
       <div>
         <h1>Menu!</h1>
-        <ul className='menu'>
-          <li>
-            <button onClick={this.props.playOnline}>Play online</button>
-          </li>
-          <li>
-            <button onClick={this.props.playOnline}>Play offline</button>
-          </li>
-        </ul>
+        {menuItems}
       </div>
     )
   }
