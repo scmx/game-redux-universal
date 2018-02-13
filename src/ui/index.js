@@ -7,7 +7,9 @@ export const uiStates = buildConstant(
     'HALL_OF_FAME',
     'PVE',
     'PVP',
-    'DESIGNER'
+    'DESIGNER',
+    'NEW_GAME',
+    'LOAD_GAME'
   )
 )
 
