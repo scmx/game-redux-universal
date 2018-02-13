@@ -4,7 +4,7 @@ import { uiStates } from '../ui'
 import Menu from '../menu/Menu'
 import NicknameChooser from '../nickname/NicknameChooser'
 import HallOfFame from '../hallOfFame/HallOfFame'
-import Designer from '../designer/Designer'
+import NewGame from '../newGame/NewGame'
 
 class Router extends React.Component {
   render () {
@@ -18,8 +18,8 @@ class Router extends React.Component {
       case uiStates.HALL_OF_FAME: {
         return <HallOfFame />
       }
-      case uiStates.DESIGNER: {
-        return <Designer />
+      case uiStates.NEW_GAME: {
+        return <NewGame />
       }
       default: {
         return <div>No route definition for {this.props.ui}</div>
