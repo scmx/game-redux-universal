@@ -27,5 +27,17 @@ export const uiCreators = buildConstant({
 
   playOffline: () => ({
     type: uiActions.PLAY_OFFLINE
+  }),
+
+  newGame: () => ({
+    type: uiActions.NEW_GAME
+  }),
+
+  loadGame: () => ({
+    type: uiActions.LOAD_GAME
+  }),
+
+  hallOfFame: () => ({
+    type: uiActions.HALL_OF_FAME
   })
 })
