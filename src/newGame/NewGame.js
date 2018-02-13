@@ -13,13 +13,13 @@ class Menu extends React.Component {
         <h1>Menu!</h1>
         <ul className='menu'>
           <li>
-            <button onClick={this.props.newGame}>New Game</button>
+            <button onClick={this.props.heroMenu}>Choose</button>
           </li>
           <li>
-            <button onClick={this.props.heroMenu}>Continue</button>
+            <button onClick={this.props.heroMenu}>Choose</button>
           </li>
           <li>
-            <button onClick={this.props.hallOfFame}>Hall of Fame</button>
+            <button onClick={this.props.heroMenu}>Choose</button>
           </li>
         </ul>
       </div>
@@ -28,7 +28,5 @@ class Menu extends React.Component {
 }
 
 export default connect(null, {
-  newGame: uiCreators.newGame,
-  heroMenu: uiCreators.heroMenu,
-  hallOfFame: uiCreators.hallOfFame
+  heroMenu: uiCreators.heroMenu
 })(Menu)

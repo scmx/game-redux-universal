@@ -14,8 +14,8 @@ export default function uiReducer (state = uiStates.NICKNAME, action) {
     case uiActions.NEW_GAME: {
       return uiActions.NEW_GAME
     }
-    case uiActions.LOAD_GAME: {
-      return uiActions.LOAD_GAME
+    case uiActions.HERO_MENU: {
+      return uiActions.HERO_MENU
     }
     case uiActions.HALL_OF_FAME: {
       return uiActions.HALL_OF_FAME

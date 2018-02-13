@@ -8,12 +8,12 @@ export const uiStates = buildConstant(
     'PVE',
     'PVP',
     'NEW_GAME',
-    'LOAD_GAME'
+    'HERO_MENU'
   )
 )
 
 export const uiActions = buildConstant(
-  stringArrayToStringObject('SET_NICKNAME', 'PLAY_ONLINE', 'PLAY_OFFLINE', 'NEW_GAME', 'LOAD_GAME', 'HALL_OF_FAME')
+  stringArrayToStringObject('SET_NICKNAME', 'PLAY_ONLINE', 'PLAY_OFFLINE', 'NEW_GAME', 'HERO_MENU', 'HALL_OF_FAME')
 )
 
 export const uiCreators = buildConstant({
@@ -34,8 +34,8 @@ export const uiCreators = buildConstant({
     type: uiActions.NEW_GAME
   }),
 
-  loadGame: () => ({
-    type: uiActions.LOAD_GAME
+  heroMenu: () => ({
+    type: uiActions.HERO_MENU
   }),
 
   hallOfFame: () => ({
