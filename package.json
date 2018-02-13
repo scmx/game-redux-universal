@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "start": "npm run format && npm run lint && babel-node src/start.js",
-    "format": "prettier-standard '**/*.{js,json}'",
+    "format": "prettier-standard '**/*.js */**/*.json'",
     "lint": "standard"
   },
   "dependencies": {
