@@ -10,7 +10,7 @@ class Menu extends React.Component {
   render () {
     return (
       <div>
-        <h1>Menu!</h1>
+        <h1>Choose your hero!</h1>
         <ul className='menu'>
           <li>
             <button onClick={this.props.heroMenu}>Choose</button>
