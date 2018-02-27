@@ -9,8 +9,11 @@ class HeroMenu extends React.Component {
 
   render () {
     return (
-      <div>
-        <h1>HERO Menu!</h1>
+      <div className='hero-menu'>
+        <div className='hero-menu__left'>
+          <div className='hero-menu__showcase'>Sprite and text for lvl, job etc</div>
+          <div className='hero-menu__stats'>Stats</div>
+        </div>
       </div>
     )
   }

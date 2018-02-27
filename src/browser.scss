@@ -1,3 +1,5 @@
+@import 'heroMenu/HeroMenu';
+
 html {
   box-sizing: border-box;
 }
@@ -7,8 +9,14 @@ html {
 }
 
 html, body {
+  margin: 0;
+  padding: 0;
   background: #399;
   font-size: 1.3em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  display: inline-block;
 }
 
 fieldset {
