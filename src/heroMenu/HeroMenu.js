@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { uiCreators } from '../ui'
 
-class Menu extends React.Component {
+class HeroMenu extends React.Component {
   componentDidMount () {
     // this.props.playOffline() // TODO: Support both
   }
@@ -18,4 +18,4 @@ class Menu extends React.Component {
 
 export default connect(null, {
   heroMenu: uiCreators.heroMenu
-})(Menu)
+})(HeroMenu)
