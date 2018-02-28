@@ -34,8 +34,9 @@ export const uiCreators = buildConstant({
     type: uiActions.NEW_GAME
   }),
 
-  heroMenu: () => ({
-    type: uiActions.HERO_MENU
+  heroMenu: (hero) => ({
+    type: uiActions.HERO_MENU,
+    payload: hero
   }),
 
   hallOfFame: () => ({

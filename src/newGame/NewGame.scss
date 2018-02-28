@@ -1,0 +1,59 @@
+.new-game {
+  &__heading {
+    text-align: center;
+    font-family: sans-serif;
+  }
+
+  &__heroes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    grid-auto-flow: dense;
+    justify-content: center;
+    list-style: none;
+
+    @media (min-width: 1098px) {
+      grid-template-columns: repeat(3, minmax(13rem, 20rem));
+    }
+  }
+
+  &__hero {
+    margin: 1rem;
+    border: 0;
+    background: #bada55;
+    font-size: 1rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:active {
+      background: #bada55 - 20;
+    }
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+
+  &__stat-key {
+    padding-right: 0.3rem;
+  }
+
+  &__stat-val {
+    margin-left: 0;
+    text-align: left;
+    position: relative;
+
+    &::after {
+      content: '';
+      width: var(--progress);
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: 0.3rem;
+      background: red;
+    }
+  }
+}
