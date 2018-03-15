@@ -8,7 +8,7 @@ import { apiCreators } from '../api'
 
 class NewGame extends React.Component {
   componentDidMount () {
-    this.props.heroMenuLoadRequest()
+    this.props.heroChoicesLoadRequest()
     // this.props.heroMenu(this.state.heroes[0])
   }
 
@@ -62,10 +62,10 @@ NewGame.defaultProps = {
 
 export default connect(
   state => ({
-    heroes: pick(state.randomHeroes, state.heroMenu.ids)
+    heroes: pick(state.heroChoices, state.heroChoicesByPlayer)
   }),
   {
     heroMenu: uiCreators.heroMenu,
-    heroMenuLoadRequest: apiCreators.heroMenuLoadRequest
+    heroChoicesLoadRequest: apiCreators.heroChoicesLoadRequest
   }
 )(NewGame)

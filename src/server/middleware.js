@@ -24,10 +24,10 @@ export default function serverMiddleware () {
       const state = store.getState()
 
       switch (action.type) {
-        case apiActions.HERO_MENU_LOAD_REQUEST: {
+        case apiActions.HERO_CHOICES_LOAD_REQUEST: {
           const result = next(action)
 
-          store.dispatch(apiCreators.heroMenuLoadSuccess({
+          store.dispatch(apiCreators.heroChoicesLoadSuccess({
             [uuidv4()]: randomHero(),
             [uuidv4()]: randomHero(),
             [uuidv4()]: randomHero()

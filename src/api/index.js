@@ -1,14 +1,14 @@
 import { buildConstant } from '../utils'
 import { buildAPI } from './utils'
 
-const heroMenuApi = buildAPI(
-  'HERO_MENU_LOAD'
+const heroChoicesApi = buildAPI(
+  'HERO_CHOICES_LOAD'
 )
 
 export const apiActions = buildConstant({
-  ...heroMenuApi.actions
+  ...heroChoicesApi.actions
 })
 
 export const apiCreators = buildConstant({
-  ...heroMenuApi.creators
+  ...heroChoicesApi.creators
 })

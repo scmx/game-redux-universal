@@ -1,8 +1,8 @@
 import { apiActions } from '../api'
 
-export default function randomHeroesReducer (state = {}, action) {
+export default function heroChoicesReducer (state = {}, action) {
   switch (action.type) {
-    case apiActions.HERO_MENU_LOAD_SUCCESS: {
+    case apiActions.HERO_CHOICES_LOAD_SUCCESS: {
       return {
         ...state,
         ...action.payload
