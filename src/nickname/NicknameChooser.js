@@ -16,9 +16,15 @@ class NicknameChooser extends React.Component {
 
   render () {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input type='text' ref='nickname' required />
-        <button type='submit'>Play</button>
+      <form
+        onSubmit={this.handleSubmit}
+        name='nickname-chooser'
+        className='nickname-chooser'
+      >
+        <fieldset>
+          <input type='text' ref='nickname' required className='input' />
+          <button type='submit' className='button button--primary'>Play</button>
+        </fieldset>
       </form>
     )
   }

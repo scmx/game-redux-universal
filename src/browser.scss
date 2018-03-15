@@ -16,6 +16,12 @@ html, body {
   font-size: 1.3em;
 }
 
+.app,
+.nickname-chooser,
+html, body {
+  min-height: 100vh;
+}
+
 h1, h2, h3, h4, h5, h6 {
   display: inline-block;
   width: 100%;
@@ -67,4 +73,10 @@ fieldset {
     color: #bff;
     border-color: #059 + 20;
   }
+}
+
+.nickname-chooser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
