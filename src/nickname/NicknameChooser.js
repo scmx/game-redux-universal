@@ -22,7 +22,13 @@ class NicknameChooser extends React.Component {
         className='nickname-chooser'
       >
         <fieldset>
-          <input type='text' ref='nickname' required className='input' />
+          <input
+            type='text'
+            ref='nickname'
+            required
+            autoFocus
+            className='input'
+          />
           <button type='submit' className='button button--primary'>Play</button>
         </fieldset>
       </form>
