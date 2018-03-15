@@ -1,38 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { uiCreators } from '../ui'
-import getSillyName from 'sillyname'
 import flatMap from 'lodash/flatMap'
-
-const randomStat = () => 0.1 + Math.random() * 0.8
-
-const randomHero = () => ({
-  name: getSillyName(),
-  level: 1,
-  job: 'Mage',
-  stats: {
-    hp: randomStat(),
-    atk: randomStat(),
-    def: randomStat(),
-    wis: randomStat(),
-    spe: randomStat()
-  }
-})
+import pick from 'lodash/pick'
+import map from 'lodash/map'
+import { apiCreators } from '../api'
 
 class NewGame extends React.Component {
-  constructor (args) {
-    super(args)
-
-    this.state = {
-      heroes: [
-        randomHero(),
-        randomHero(),
-        randomHero()
-      ]
-    }
-  }
-
   componentDidMount () {
+    this.props.heroMenuLoadRequest()
     // this.props.heroMenu(this.state.heroes[0])
   }
 
@@ -42,11 +18,11 @@ class NewGame extends React.Component {
         <h1 className='new-game__heading'>Choose your hero!</h1>
 
         <div className='new-game__heroes'>
-          {this.state.heroes.map((hero, index) => (
+          {map(this.props.heroes, (hero, id) => (
             <button
               className='new-game__hero'
               onClick={() => this.props.heroMenu(hero)}
-              key={index}
+              key={id}
             >
               <h3>{hero.name}</h3>
 
@@ -80,6 +56,16 @@ class NewGame extends React.Component {
   }
 }
 
-export default connect(null, {
-  heroMenu: uiCreators.heroMenu
-})(NewGame)
+NewGame.defaultProps = {
+  heroes: []
+}
+
+export default connect(
+  state => ({
+    heroes: pick(state.randomHeroes, state.heroMenu.ids)
+  }),
+  {
+    heroMenu: uiCreators.heroMenu,
+    heroMenuLoadRequest: apiCreators.heroMenuLoadRequest
+  }
+)(NewGame)

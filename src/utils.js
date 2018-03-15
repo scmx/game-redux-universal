@@ -54,3 +54,12 @@ export function stringArrayToStringObject (...values) {
   values.forEach(val => (target[val] = val))
   return target
 }
+
+export function buildNamespacedActions (namespacedAction) {
+  return names => buildConstant(
+    names.reduce((acc, name) => ({
+      ...acc,
+      [name]: namespacedAction(name)
+    }), {})
+  )
+}
