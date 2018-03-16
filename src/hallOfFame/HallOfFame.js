@@ -26,6 +26,9 @@ class HallOfFame extends React.Component {
 export default connect(
   state => ({
     // TODO: List previous heroes instead
-    heroes: pick(state.heroChoices, state.heroChoicesByPlayer)
+    heroes: pick(
+      state.heroChoices,
+      state.heroChoicesByPlayer[state.player.id]
+    )
   })
 )(HallOfFame)

@@ -62,7 +62,7 @@ NewGame.defaultProps = {
 
 export default connect(
   state => ({
-    heroes: pick(state.heroChoices, state.heroChoicesByPlayer)
+    heroes: pick(state.heroChoices, state.heroChoicesByPlayer[state.player.id])
   }),
   {
     heroMenu: uiCreators.heroMenu,
