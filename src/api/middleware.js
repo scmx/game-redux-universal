@@ -1,9 +1,17 @@
 import { API_REQUEST, API_RESPONSE } from './utils'
 
+const attachMeta = (state, { meta, ...action }) => ({
+  ...action,
+  meta: {
+    ...meta,
+    playerId: state.player.id
+  }
+})
+
 export function apiRequestMiddleware () {
   return store => {
     function handleApiRequest (action) {
-      store.dispatch(action)
+      store.dispatch(attachMeta(store.getState(), action))
 
       // if (store.getState().server.offline) {
       //   return
@@ -29,7 +37,7 @@ export function apiRequestMiddleware () {
 export function apiResponseMiddleware () {
   return store => {
     function handleApiResponse (action) {
-      store.dispatch(action)
+      store.dispatch(attachMeta(store.getState(), action))
 
       // if (store.getState().server.offline) {
       //   return
