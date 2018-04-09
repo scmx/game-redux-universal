@@ -6,12 +6,18 @@ import express from 'express'
 import path from 'path'
 import webpackConfig from './webpack.config.js'
 import { createServer } from 'http'
+import configureStore from './configureStore'
 
 const webpackCompiler = createWebpackCompiler(webpackConfig)
 
 const app = express()
 const server = createServer(app)
 const io = createWebSocketServer(server)
+
+const initialState = {
+}
+
+configureStore(initialState)
 
 app.set('port', process.env.PORT || 3000)
 app.set('host', process.env.HOST || '0.0.0.0')
