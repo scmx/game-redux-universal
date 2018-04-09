@@ -15,6 +15,10 @@ const server = createServer(app)
 const io = createWebSocketServer(server)
 
 const initialState = {
+  server: {
+    isServer: true,
+    isClient: false
+  }
 }
 
 configureStore(initialState)

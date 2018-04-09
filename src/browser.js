@@ -8,7 +8,16 @@ import './browser.scss'
 
 const socket = window.io()
 
-const initialState = getLocalState()
+const localState = getLocalState()
+
+const initialState = {
+  ...localState,
+  server: {
+    ...localState.server,
+    isServer: false,
+    isClient: true
+  }
+}
 
 const store = configureStore(initialState)
 

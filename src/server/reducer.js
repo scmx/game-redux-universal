@@ -7,5 +7,21 @@ export default combineReducers({
         return state
       }
     }
+  },
+
+  isServer (state = false, action) {
+    switch (action.type) {
+      default: {
+        return state
+      }
+    }
+  },
+
+  isClient (state = false, action) {
+    switch (action.type) {
+      default: {
+        return state
+      }
+    }
   }
 })
