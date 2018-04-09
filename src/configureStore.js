@@ -10,7 +10,7 @@ export default function configureStore (initialState, middlewareConfig = {}) {
 }
 
 function combineMiddlewares (config) {
-  const configure = name => middlewares[name].apply(null, config[name])
+  const configure = name => middlewares[name].call(null, config[name])
   const names = Object.keys(middlewares).filter(name => name !== 'default')
   return applyMiddleware(...names.map(configure))
 }
