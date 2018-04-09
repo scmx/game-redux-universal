@@ -22,6 +22,8 @@ const initialState = {
 }
 
 const store = configureStore(initialState, {
+  apiRequestMiddleware: { socket },
+  apiResponseMiddleware: { socket },
   loggerMiddleware: createLogger(),
   storageMiddleware: storageMiddleware()
 })

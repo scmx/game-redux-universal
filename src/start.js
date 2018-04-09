@@ -28,6 +28,8 @@ const loggerMiddleware = store => next => action => {
 }
 
 configureStore(initialState, {
+  apiRequestMiddleware: { io },
+  apiResponseMiddleware: { io },
   loggerMiddleware
 })
 
@@ -45,11 +47,6 @@ app.use(
 // app.use(createHotMiddleware(webpackCompiler))
 
 app.use(express.static(path.join(__dirname, '../public')))
-
-io.on('connection', socket => {
-  console.log('Connection')
-  socket.emit('message', 'Hello world')
-})
 
 server.listen(app.get('port'), app.get('host'), () => {
   console.log(`Listening on http://${app.get('host')}:${app.get('port')}`)
