@@ -21,7 +21,15 @@ const initialState = {
   }
 }
 
-configureStore(initialState)
+const loggerMiddleware = store => next => action => {
+  console.log(action.type, action.payload, action.meta)
+  const result = next(action)
+  return result
+}
+
+configureStore(initialState, {
+  loggerMiddleware
+})
 
 app.set('port', process.env.PORT || 3000)
 app.set('host', process.env.HOST || '0.0.0.0')
