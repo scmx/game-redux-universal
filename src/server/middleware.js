@@ -24,8 +24,8 @@ const randomHeroes = count => Array(count)
   .map(randomHero)
   .reduce((acc, hero) => ({ ...acc, [hero.id]: hero }), {})
 
-export default function serverMiddleware () {
-  return store => {
+export default function serverMiddlewareFactory () {
+  return function serverMiddleware (store) {
     return next => action => {
       const state = store.getState()
 

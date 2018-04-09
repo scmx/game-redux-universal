@@ -3,13 +3,15 @@ import pick from 'lodash/pick'
 
 const { localStorage } = window
 
-export default function storageMiddleware () {
-  return store => next => action => {
-    const result = next(action)
-    const data = pick(store.getState(), ['nickname', 'skills'])
+export default function storageMiddlewareFactory () {
+  return function storageMiddleware (store) {
+    return next => action => {
+      const result = next(action)
+      const data = pick(store.getState(), ['nickname', 'skills'])
 
-    localStorage.setItem(KEY, JSON.stringify(data))
+      localStorage.setItem(KEY, JSON.stringify(data))
 
-    return result
+      return result
+    }
   }
 }
