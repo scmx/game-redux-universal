@@ -29,11 +29,17 @@ export default function serverMiddlewareFactory () {
     return next => action => {
       const state = store.getState()
 
+      if (!state.server.isServer) {
+        return next(action)
+      }
+
       switch (action.type) {
         case apiActions.HERO_CHOICES_LOAD_REQUEST: {
           const result = next(action)
 
-          store.dispatch(apiCreators.heroChoicesLoadSuccess(randomHeroes(3)))
+          store.dispatch(apiCreators.heroChoicesLoadSuccess(
+            randomHeroes(3), action.meta
+          ))
 
           return result
         }

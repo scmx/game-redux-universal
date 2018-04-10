@@ -22,8 +22,13 @@ const initialState = {
 }
 
 const loggerMiddleware = store => next => action => {
-  console.log(action.type, action.payload, action.meta)
+  console.log(
+    'action', action.type,
+    'payload', action.payload,
+    'meta', action.meta
+  )
   const result = next(action)
+  console.log('state', store.getState())
   return result
 }
 

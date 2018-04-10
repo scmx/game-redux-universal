@@ -1,11 +1,19 @@
 import { API_REQUEST, API_RESPONSE } from './utils'
 import { apiActions } from './'
 
-const attachMeta = (state, { meta, ...action }) => ({
+const attachSocketMeta = ({ meta, ...action }, socket) => ({
   ...action,
   meta: {
     ...meta,
-    playerId: state.player.id
+    socketId: socket.id
+  }
+})
+
+const attachPlayerMeta = ({ meta, ...action }, player) => ({
+  ...action,
+  meta: {
+    ...meta,
+    playerId: player.id
   }
 })
 
@@ -19,7 +27,7 @@ export function apiRequestMiddleware ({ socket, io } = {}) {
         socket.on('API_REQUEST', action => {
           switch (action.type) {
             case apiActions.HERO_CHOICES_LOAD_REQUEST: {
-              store.dispatch(action)
+              store.dispatch(attachSocketMeta(action, socket))
               break
             }
             default: {
@@ -32,11 +40,11 @@ export function apiRequestMiddleware ({ socket, io } = {}) {
 
     function handleApiRequest (rawAction) {
       const state = store.getState()
-      const action = attachMeta(state, rawAction)
+      const action = attachPlayerMeta(rawAction, state.player)
 
       store.dispatch(action)
 
-      if (state.server.offline || state.server.isServer) {
+      if (state.server.isServer) {
         return
       }
 
@@ -67,12 +75,12 @@ export function apiResponseMiddleware ({ socket, io } = {}) {
 
     function handleApiResponse (rawAction) {
       const state = store.getState()
-      const action = attachMeta(state, rawAction)
+      const action = attachPlayerMeta(rawAction, state.player)
       const { socketId } = action.meta
 
       store.dispatch(action)
 
-      if (state.server.offline || state.server.isClient) {
+      if (state.server.isClient) {
         return
       }
 

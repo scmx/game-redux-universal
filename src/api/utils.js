@@ -4,12 +4,12 @@ import camelCase from 'lodash/camelCase'
 export const API_REQUEST = Symbol('API_REQUEST')
 export const API_RESPONSE = Symbol('API_RESPONSE')
 
-const apiRequest = (type) => payload => ({
-  [API_REQUEST]: { type, payload }
+const apiRequest = (type) => (payload, meta) => ({
+  [API_REQUEST]: { type, payload, meta }
 })
 
-const apiResponse = (type) => payload => ({
-  [API_RESPONSE]: { type, payload }
+const apiResponse = (type) => (payload, meta) => ({
+  [API_RESPONSE]: { type, payload, meta }
 })
 
 export function buildAPI (...apiNames) {
