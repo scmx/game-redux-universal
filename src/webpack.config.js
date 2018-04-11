@@ -6,7 +6,7 @@ import path from 'path'
 module.exports = {
   entry: {
     // app: ['webpack-hot-middleware/client?http://localhost:3000', ...]
-    app: path.resolve(__dirname, 'browser.js')
+    app: path.resolve(__dirname, 'client/index.js')
   },
   output: {
     filename: 'assets/[name].bundle.js',
@@ -17,7 +17,7 @@ module.exports = {
     // new HotModuleReplacementPlugin(),
     new NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'index.html'),
+      template: path.join(__dirname, 'client/index.html'),
       title: 'Game Example Redux Universal'
     }),
     new ReloadHtmlWebpackPlugin()

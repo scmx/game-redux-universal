@@ -4,9 +4,9 @@ import createWebSocketServer from 'socket.io'
 import createWebpackCompiler from 'webpack'
 import express from 'express'
 import path from 'path'
-import webpackConfig from './webpack.config.js'
+import webpackConfig from '../webpack.config.js'
 import { createServer } from 'http'
-import configureStore from './configureStore'
+import configureStore from '../store/configureStore'
 
 const webpackCompiler = createWebpackCompiler(webpackConfig)
 
@@ -51,7 +51,7 @@ app.use(
 
 // app.use(createHotMiddleware(webpackCompiler))
 
-app.use(express.static(path.join(__dirname, '../public')))
+app.use(express.static(path.join(__dirname, '../../public')))
 
 server.listen(app.get('port'), app.get('host'), () => {
   console.log(`Listening on http://${app.get('host')}:${app.get('port')}`)

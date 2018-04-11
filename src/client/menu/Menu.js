@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { uiCreators } from '../ui'
+import { uiCreators } from '../../store/ui'
 
 class Menu extends React.Component {
   componentDidMount () {

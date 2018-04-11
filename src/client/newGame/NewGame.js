@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { uiCreators } from '../ui'
+import { uiCreators } from '../../store/ui'
 import flatMap from 'lodash/flatMap'
 import pick from 'lodash/pick'
 import map from 'lodash/map'
-import { apiCreators } from '../api'
+import { apiCreators } from '../../store/api'
 
 class NewGame extends React.Component {
   componentDidMount () {

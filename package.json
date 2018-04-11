@@ -2,7 +2,7 @@
   "name": "game-redux-universal",
   "private": true,
   "scripts": {
-    "start": "npm run format && npm run lint && babel-node src/start.js",
+    "start": "npm run format && npm run lint && babel-node src/server/index.js",
     "format": "prettier-standard '**/*.js */**/*.json'",
     "lint": "standard"
   },

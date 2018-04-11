@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { uiStates } from '../ui'
+import { uiStates } from '../../store/ui'
 import Menu from '../menu/Menu'
 import NicknameChooser from '../nickname/NicknameChooser'
 import HallOfFame from '../hallOfFame/HallOfFame'
