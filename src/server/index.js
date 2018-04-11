@@ -1,57 +1,12 @@
-import createDevMiddleware from 'webpack-dev-middleware'
-// import createHotMiddleware from 'webpack-hot-middleware'
 import createWebSocketServer from 'socket.io'
-import createWebpackCompiler from 'webpack'
-import express from 'express'
-import path from 'path'
-import webpackConfig from '../webpack.config.js'
 import { createServer } from 'http'
-import configureStore from '../store/configureStore'
+import app from './app'
+import createStore from './createStore'
 
-const webpackCompiler = createWebpackCompiler(webpackConfig)
-
-const app = express()
 const server = createServer(app)
 const io = createWebSocketServer(server)
 
-const initialState = {
-  server: {
-    isServer: true,
-    isClient: false
-  }
-}
-
-const loggerMiddleware = store => next => action => {
-  console.log(
-    'action', action.type,
-    'payload', action.payload,
-    'meta', action.meta
-  )
-  const result = next(action)
-  console.log('state', store.getState())
-  return result
-}
-
-configureStore(initialState, {
-  apiRequestMiddleware: { io },
-  apiResponseMiddleware: { io },
-  loggerMiddleware
-})
-
-app.set('port', process.env.PORT || 3000)
-app.set('host', process.env.HOST || '0.0.0.0')
-
-app.use(
-  createDevMiddleware(webpackCompiler, {
-    stats: 'minimal',
-    noInfo: true,
-    publicPath: webpackConfig.output.publicPath
-  })
-)
-
-// app.use(createHotMiddleware(webpackCompiler))
-
-app.use(express.static(path.join(__dirname, '../../public')))
+createStore(io)
 
 server.listen(app.get('port'), app.get('host'), () => {
   console.log(`Listening on http://${app.get('host')}:${app.get('port')}`)
